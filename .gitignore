@@ -1,1 +1,5 @@
 a.out
+OMakefile.omc
+OMakeroot.omc
+.omakedb
+.omakedb.lock
