@@ -26,10 +26,10 @@
 .PHONY: clean distclean
 
 clean:
-	rm -f *~
+	rm -f *.o *.a *~ libuniformed_access$(EXT_LIB)
 
 distclean: clean
-	rm -f *.omc .omakedb .omakedb.lock
+	rm -f *.omc
 
 ########################################################################
 # Subdirectories.
@@ -37,4 +37,26 @@ distclean: clean
 # If so, define the subdirectory targets and uncomment this section.
 #
 
-.SUBDIRS: contrib uniformed_access
+# .SUBDIRS:
+
+########################################################################
+# C configuration.
+# Delete this section if you are not building C files.
+#
+
+################################################
+# Configuration.  You might want to modify any of these
+# configuration variables.
+#
+
+# CFLAGS +=
+# ASFLAGS +=
+# LDFLAGS +=
+# INCLUDES +=
+
+CXXFILES[] =
+	value
+
+TARGET = libuniformed_access
+
+.DEFAULT: $(StaticCXXLibrary $(TARGET), $(CXXFILES))

@@ -26,10 +26,10 @@
 .PHONY: clean distclean
 
 clean:
-	rm -f *~
+	rm -f *.o *.a *~ uniformed_access_test
 
 distclean: clean
-	rm -f *.omc .omakedb .omakedb.lock
+	rm -f *.omc
 
 ########################################################################
 # Subdirectories.
@@ -37,4 +37,33 @@ distclean: clean
 # If so, define the subdirectory targets and uncomment this section.
 #
 
-.SUBDIRS: contrib uniformed_access
+# .SUBDIRS:
+
+########################################################################
+# C configuration.
+# Delete this section if you are not building C files.
+#
+
+################################################
+# Configuration.  You might want to modify any of these
+# configuration variables.
+#
+
+# CFLAGS +=
+# ASFLAGS +=
+# LDFLAGS += -L../../contrib/gmock -L../src
+
+INCLUDES[] +=
+	../../contrib/gmock
+	../src
+
+LIBS[] =
+	../../contrib/gmock/libgmock_main
+	../src/libuniformed_access
+
+CXXFILES[] =
+	test_value
+
+TARGET = uniformed_access_test
+
+.DEFAULT: $(CXXProgram $(TARGET), $(CXXFILES))

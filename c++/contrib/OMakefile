@@ -37,4 +37,4 @@ distclean: clean
 # If so, define the subdirectory targets and uncomment this section.
 #
 
-.SUBDIRS: contrib uniformed_access
+.SUBDIRS: gmock
