@@ -23,7 +23,7 @@
 #
 
 # .PHONY: all install clean
-.PHONY: clean distclean
+.PHONY: clean distclean test
 
 clean:
 	rm -f *.o *.a *~ uniformed_access_test
@@ -51,7 +51,7 @@ distclean: clean
 
 # CFLAGS +=
 # ASFLAGS +=
-# LDFLAGS += -L../../contrib/gmock -L../src
+# LDFLAGS +=
 
 INCLUDES[] +=
 	../../contrib/gmock
@@ -59,7 +59,6 @@ INCLUDES[] +=
 
 LIBS[] =
 	../../contrib/gmock/libgmock_main
-	../src/libuniformed_access
 
 CXXFILES[] =
 	test_value
@@ -67,3 +66,6 @@ CXXFILES[] =
 TARGET = uniformed_access_test
 
 .DEFAULT: $(CXXProgram $(TARGET), $(CXXFILES))
+
+test: $(TARGET)$(EXE)
+	./$(TARGET)

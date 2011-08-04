@@ -55,8 +55,7 @@ distclean: clean
 # INCLUDES +=
 
 CXXFILES[] =
-	value
 
 TARGET = libuniformed_access
 
-.DEFAULT: $(StaticCXXLibrary $(TARGET), $(CXXFILES))
+# .DEFAULT: $(StaticCXXLibrary $(TARGET), $(CXXFILES))
